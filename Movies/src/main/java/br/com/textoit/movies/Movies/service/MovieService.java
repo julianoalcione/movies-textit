@@ -29,13 +29,10 @@ public class MovieService {
 
                 if(isSameProducer && !isSameMovie) {
                     int diference = getDiferenceMovieYear(movie, movieCompare);
-
-                    if(movie.getMovieYear() < movieCompare.getMovieYear()){
-                        if(diference < smallerDiferenceFound){
-                            smallerDiferenceFound = diference;
-                            movieWithSmallerDiferenceOne = movie;
-                            movieWithSmallerDiferenceTwo = movieCompare;
-                        }
+                    if(diference < smallerDiferenceFound){
+                        smallerDiferenceFound = diference;
+                        movieWithSmallerDiferenceOne = movie;
+                        movieWithSmallerDiferenceTwo = movieCompare;
                     }
                 }
             }
@@ -62,12 +59,10 @@ public class MovieService {
                 if(isSameProducer && !isSameMovie) {
                     int diference = getDiferenceMovieYear(movie, movieCompare);
 
-                    if(movie.getMovieYear() < movieCompare.getMovieYear()){
-                        if(diference > biggerDiferenceFound){
-                            biggerDiferenceFound = diference;
-                            movieWithBiggerDiferenceOne = movie;
-                            movieWithBiggerDiferenceTwo = movieCompare;
-                        }
+                    if(diference > biggerDiferenceFound){
+                        biggerDiferenceFound = diference;
+                        movieWithBiggerDiferenceOne = movie;
+                        movieWithBiggerDiferenceTwo = movieCompare;
                     }
                 }
             }
