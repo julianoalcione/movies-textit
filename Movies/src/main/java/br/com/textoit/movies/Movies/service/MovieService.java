@@ -41,7 +41,18 @@ public class MovieService {
         if(smallerDiferenceFound == Integer.MAX_VALUE)
             return null;
 
-        return new MoviesWinnersDto(movieWithSmallerDiferenceOne.getProducers(), smallerDiferenceFound, movieWithSmallerDiferenceOne.getMovieYear(), movieWithSmallerDiferenceTwo.getMovieYear());
+        Integer previous;
+        Integer following;
+
+        if(movieWithSmallerDiferenceOne.getMovieYear() > movieWithSmallerDiferenceTwo.getMovieYear()){
+            previous = movieWithSmallerDiferenceTwo.getMovieYear();
+            following = movieWithSmallerDiferenceOne.getMovieYear();
+        }else{
+            previous = movieWithSmallerDiferenceOne.getMovieYear();
+            following = movieWithSmallerDiferenceTwo.getMovieYear();
+        }
+
+        return new MoviesWinnersDto(movieWithSmallerDiferenceOne.getProducers(), smallerDiferenceFound, previous, following);
     }
 
     public MoviesWinnersDto getWinnerSlower(){
@@ -71,7 +82,18 @@ public class MovieService {
         if(biggerDiferenceFound == Integer.MIN_VALUE)
             return null;
 
-        return new MoviesWinnersDto(movieWithBiggerDiferenceOne.getProducers(), biggerDiferenceFound, movieWithBiggerDiferenceOne.getMovieYear(), movieWithBiggerDiferenceTwo.getMovieYear());
+        Integer previous;
+        Integer following;
+
+        if(movieWithBiggerDiferenceOne.getMovieYear() > movieWithBiggerDiferenceTwo.getMovieYear()){
+            previous = movieWithBiggerDiferenceTwo.getMovieYear();
+            following = movieWithBiggerDiferenceOne.getMovieYear();
+        }else{
+            previous = movieWithBiggerDiferenceTwo.getMovieYear();
+            following = movieWithBiggerDiferenceOne.getMovieYear();
+        }
+
+        return new MoviesWinnersDto(movieWithBiggerDiferenceOne.getProducers(), biggerDiferenceFound, previous, following);
     }
 
 
